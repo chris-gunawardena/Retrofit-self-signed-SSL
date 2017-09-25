@@ -74,7 +74,8 @@ public final class UxApi {
         String newHeaderHash = getHeadersHash(store, token, assortmentId);
         if (instance == null || !newHeaderHash.equals(lastHeaderHash)) {
             lastHeaderHash = newHeaderHash;
-            String BASE_URL = "https://mobileapi.test.jomni.nl";
+            //String BASE_URL = "https://mobileapi.test.jomni.nl";
+            String BASE_URL = "https://mobileapi.jumbo.com";
 
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(new Interceptor() {
@@ -97,7 +98,7 @@ public final class UxApi {
                         .baseUrl(BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create())
                         //.client(getUnsafeOkHttpClient(store, token, assortmentId))
-                        .okHttpClientBuilder(ctx, store, token, assortmentId)
+                        //.okHttpClientBuilder(ctx, store, token, assortmentId)
                         .client(okHttpClient)
                         .build();
 
